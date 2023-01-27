@@ -13,7 +13,8 @@ connector = sqlite3.connect('PlacementManagement.db')
 cursor = connector.cursor()
 
 connector.execute(
-"CREATE TABLE IF NOT EXISTS PLACEMENT_MANAGEMENT (STUDENT_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, NAME TEXT, EMAIL TEXT, ROLL_NO TEXT, GENDER TEXT, AGG TEXT, PLACE TEXT, PACK TEXT)"
+"CREATE TABLE IF NOT EXISTS PLACEMENT_MANAGEMENT "
+"(STUDENT_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, NAME TEXT, EMAIL TEXT, ROLL_NO TEXT, GENDER TEXT, AGG TEXT, PLACE TEXT, PACK TEXT)"
 )
 
 # Creating the functions
@@ -105,7 +106,7 @@ def view_record():
 # Initializing the GUI window
 main = Tk()
 main.title('STUDENT MINDS')
-main.geometry('1000x600')
+main.geometry('1200x800')
 main.resizable(0, 0)
 
 # Creating the background and foreground color variables
@@ -148,7 +149,7 @@ Entry(left_frame, width=19, textvariable=email_strvar, font=entryfont).place(x=3
 Entry(left_frame, width=19, textvariable=agg, font=entryfont).place(x=30, rely=0.5)
 Entry(left_frame, width=19, textvariable=pack, font=entryfont).place(x=30, rely=0.7)
 
-OptionMenu(left_frame, place_strvar, '1.GOOGLE', '2.WIPRO','3.INFOSYS','4.MICROSOFT','5.JP MORGON').place(x=30, rely=0.6, relwidth=0.52)
+OptionMenu(left_frame, place_strvar, 'GOOGLE', 'WIPRO','INFOSYS','MICROSOFT','JP MORGON').place(x=30, rely=0.6, relwidth=0.52)
 OptionMenu(left_frame, gender_strvar, 'Male', "Female").place(x=30, rely=0.4, relwidth=0.52)
 
 
@@ -159,7 +160,6 @@ Button(center_frame, text='Delete Record', font=labelfont, command=remove_record
 Button(center_frame, text='View Record', font=labelfont, command=view_record, width=15).place(relx=0.1, rely=0.35)
 Button(center_frame, text='Reset Fields', font=labelfont, command=reset_fields, width=15).place(relx=0.1, rely=0.45)
 Button(center_frame, text='Delete database', font=labelfont, command=reset_form, width=15).place(relx=0.1, rely=0.55)
-Button(center_frame, text='View Placements', font=labelfont, command=reset_form, width=15).place(relx=0.1, rely=0.65)
 
 # Placing components in the right frame
 Label(right_frame, text='Students Records', font=headlabelfont, bg='CadetBlue', fg='LightCyan').pack(side=TOP, fill=X)
